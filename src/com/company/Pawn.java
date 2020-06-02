@@ -14,32 +14,32 @@ public class Pawn extends Figure {
             System.out.println("И по вертикали");
             Scanner scanner2 = new Scanner(System.in);
             int y2 = scanner2.nextInt();
-            if (player == "БЕЛЫЙ" && array[x1][y1] == 'X' && array[x2][y2] == '_' && x2 == x1 + 1 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
-                array[x2][y2] = 'X';   //стандартный вариант хода пешки на след клетку
-                array[x1][y1] = '_';
+            if (player == "БЕЛЫЙ" && array[x1][y1] == '♙' && array[x2][y2] == '⛞' && x2 == x1 + 1 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
+                array[x2][y2] = '♙';   //стандартный вариант хода пешки на след клетку
+                array[x1][y1] = '⛞';
                 result = false;
-            } else if (player == "ЧЁРНЫЙ" && array[x1][y1] == 'O' && array[x2][y2] == '_' && x2 == x1 - 1 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
-                array[x2][y2] = 'O';   //стандартный вариант хода пешки на след клетку
-                array[x1][y1] = '_';
+            } else if (player == "ЧЁРНЫЙ" && array[x1][y1] == '♟' && array[x2][y2] == '⛞' && x2 == x1 - 1 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
+                array[x2][y2] = '♟';   //стандартный вариант хода пешки на след клетку
+                array[x1][y1] = '⛞';
                 result = false;
-            } else if (player == "БЕЛЫЙ" && x1 == 1 && array[x1][y1] == 'X' && array[x2][y2] == '_' && x2 == x1 + 2 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
-                array[x2][y2] = 'X';   //вариант хода пешки через две клетки
-                array[x1][y1] = '_';
+            } else if (player == "БЕЛЫЙ" && x1 == 1 && array[x1][y1] == '♙' && array[x2][y2] == '⛞' && x2 == x1 + 2 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
+                array[x2][y2] = '♙';   //вариант хода пешки через две клетки
+                array[x1][y1] = '⛞';
                 result = false;
-            } else if (player == "ЧЁРНЫЙ" && x1 == 6 && array[x1][y1] == 'O' && array[x2][y2] == '_' && x2 == x1 - 2 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
-                array[x2][y2] = 'O';   //вариант хода пешки через две клетки
-                array[x1][y1] = '_';
+            } else if (player == "ЧЁРНЫЙ" && x1 == 6 && array[x1][y1] == '♟' && array[x2][y2] == '⛞' && x2 == x1 - 2 && y2 == y1 && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
+                array[x2][y2] = '♟';   //вариант хода пешки через две клетки
+                array[x1][y1] = '⛞';
                 result = false;
-            } else if (player == "БЕЛЫЙ" && array[x1][y1] == 'X' && array[x2][y2] != '_' && x2 == x1 + 1 && (y2 == y1 + 1 || y2 == y1 - 1) && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
+            } else if (player == "БЕЛЫЙ" && array[x1][y1] == '♙' && array[x2][y2] != '⛞' && x2 == x1 + 1 && (y2 == y1 + 1 || y2 == y1 - 1) && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
                 System.out.println("БЕЛАЯ пешка бъет ЧЕРНУЮ фигуру");
-                array[x2][y2] = 'X';   //вариант, когда белая пешка бъет фигуру
-                array[x1][y1] = '_';
+                array[x2][y2] = '♙';   //вариант, когда белая пешка бъет фигуру
+                array[x1][y1] = '⛞';
                 result = false;
                 beat = true;
-            } else if (player == "ЧЁРНЫЙ" && array[x1][y1] == 'O' && array[x2][y2] != '_' && x2 == x1 - 1 && (y2 == y1 - 1 || y2 == y1 + 1) && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
+            } else if (player == "ЧЁРНЫЙ" && array[x1][y1] == '♟' && array[x2][y2] != '⛞' && x2 == x1 - 1 && (y2 == y1 - 1 || y2 == y1 + 1) && x2 >= 0 && x2 <= 7 && y2 >= 0 && y2 <= 7) {
                 System.out.println("ЧЁРНАЯ пешка бъет БЕЛУЮ фигуру");
-                array[x2][y2] = 'O';   //вариант, когда черная пешка бъет фигуру
-                array[x1][y1] = '_';
+                array[x2][y2] = '♟';   //вариант, когда черная пешка бъет фигуру
+                array[x1][y1] = '⛞';
                 result = false;
                 beat = true;
 
