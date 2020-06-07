@@ -4,13 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        char[][] array = Field.showField();
-        Figure pawn = new Pawn();
-        Figure rook = new Rook();
+        char[][]array = Game.showField();
+        Pawn pawn = new Pawn();
+        Rook rook =new Rook();
         Game game = new Game();
-        game.showField(array);
-        game.questionFigure(array, pawn);
+        game.showFieldNew(array);
+        game.questionFigure(array, pawn, rook);
     }
-
 
 }

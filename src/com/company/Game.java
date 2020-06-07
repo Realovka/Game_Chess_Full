@@ -3,9 +3,28 @@ package com.company;
 import java.util.Scanner;
 
 public class Game {
+
     String player = "БЕЛЫЙ";
 
-    public void showField(char[][] array) {
+    public static char[][] showField(){
+        char[][] array = new char[8][8];
+        for (int i=0; i<array.length; i++){
+            for (int j=0; j<array.length; j++){
+                array[i][j]='⛞';
+            }
+        }
+        for (int j=0; j<array.length; j++){
+            array[1][j]='♙';
+            array[6][j]='♟';
+        }
+        array[0][0]='♖';
+        array[0][7]='♖';
+        array[7][0]='♜';
+        array[7][7]='♜';
+        return array;
+    }
+
+    public void showFieldNew(char[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 System.out.print(array[i][j]);
@@ -15,7 +34,7 @@ public class Game {
     }
 
 
-    public void questionFigure(char[][] array, Figure a) {
+    public void questionFigure(char[][] array, Pawn pawn, Rook rook ) {
         boolean gameEnd = true;
         while (gameEnd) {
             System.out.println("Ходит " + player + " игрок. Введите номер клетки по горизонтали, где стоит фигура");
@@ -31,9 +50,17 @@ public class Game {
             } else if (player == "БЕЛЫЙ" && array[x1][y1] == '♟' ||
                     player == "ЧЁРНЫЙ" && array[x1][y1] == '♙') {
                 System.out.println("Будьте внимательны! Сейчас ходит другой игрок!"); //случай, когда игрок пытается походить чужой фигурой
-            } else {
-                boolean result= a.move(x1, y1, array, player);
-                showField(array);
+            } else if (array[x1][y1] == '♙'||array[x1][y1] == '♟') {
+                boolean result = pawn.move(x1, y1, array, player);
+                showFieldNew(array);
+                if (player == "БЕЛЫЙ" && result==false) {
+                    player = "ЧЁРНЫЙ";
+                } else {
+                    player = "БЕЛЫЙ";
+                }
+            } else if (array[x1][y1] == '♖'||array[x1][y1] == '♜') {
+                boolean result = rook.move(x1, y1, array, player);
+                showFieldNew(array);
                 if (player == "БЕЛЫЙ" && result==false) {
                     player = "ЧЁРНЫЙ";
                 } else {
