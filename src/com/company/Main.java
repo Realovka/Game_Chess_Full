@@ -7,9 +7,10 @@ public class Main {
         char[][]array = Game.showField();
         Pawn pawn = new Pawn();
         Rook rook =new Rook();
+        Horse horse=new Horse();
         Game game = new Game();
         game.showFieldNew(array);
-        game.questionFigure(array, pawn, rook);
+        game.questionFigure(array, pawn, rook, horse);
     }
 
 }
