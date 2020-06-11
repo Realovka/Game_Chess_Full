@@ -8,9 +8,10 @@ public class Main {
         Pawn pawn = new Pawn();
         Rook rook =new Rook();
         Horse horse=new Horse();
+        Elephant elephant = new Elephant();
         Game game = new Game();
         game.showFieldNew(array);
-        game.questionFigure(array, pawn, rook, horse);
+        game.questionFigure(array, pawn, rook, horse, elephant);
     }
 
 }

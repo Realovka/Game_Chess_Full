@@ -25,6 +25,10 @@ public class Game {
         array[0][6]='♘';
         array[7][1]='♞';
         array[7][6]='♞';
+        array[0][2]='♗';
+        array[0][5]='♗';
+        array[7][5]='♝';
+        array[7][2]='♝';
         return array;
     }
 
@@ -38,7 +42,7 @@ public class Game {
     }
 
 
-    public void questionFigure(char[][] array, Pawn pawn, Rook rook, Horse horse ) {
+    public void questionFigure(char[][] array, Pawn pawn, Rook rook, Horse horse, Elephant elephant ) {
         boolean gameEnd = true;
         while (gameEnd) {
             System.out.println("Ходит " + player + " игрок. Введите номер клетки по горизонтали, где стоит фигура");
@@ -73,6 +77,15 @@ public class Game {
             }
             else if (array[x1][y1] == '♘'||array[x1][y1] == '♞') {
                 boolean result = horse.move(x1, y1, array, player);
+                showFieldNew(array);
+                if (player == "БЕЛЫЙ" && result==false) {
+                    player = "ЧЁРНЫЙ";
+                } else {
+                    player = "БЕЛЫЙ";
+                }
+            }
+            else if (array[x1][y1] == '♗'||array[x1][y1] == '♝') {
+                boolean result = elephant.move(x1, y1, array, player);
                 showFieldNew(array);
                 if (player == "БЕЛЫЙ" && result==false) {
                     player = "ЧЁРНЫЙ";
